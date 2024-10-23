@@ -1,11 +1,11 @@
-import { Controller, Post, Get, Delete, Put, Res, HttpStatus } from '@nestjs/common';
-import { MESSAGES } from '@nestjs/core/constants';
+import { Controller, Post, Get, Delete, Put, Res, HttpStatus, Body } from '@nestjs/common';
 
+import  {CreateProductDTO} from './dto/product.dto';
 @Controller('product')
 export class ProductController {
 
 @Post('/create')
-createPost(@Res() res){
+createPost(@Res() res, @Body() createProductDTO : CreateProductDTO){
     return res.status(HttpStatus.OK).json({
         message: 'recibido'
     })
